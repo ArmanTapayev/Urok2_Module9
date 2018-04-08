@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 void fillArray(int *arr, int *row, int *col, int *min, int *max);
 void fillArray(double *arr, int *row, int *col, double *min, double *max);

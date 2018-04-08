@@ -1,4 +1,4 @@
-#include<stdio.h>
+п»ї#include<stdio.h>
 #include<iostream>
 #include<locale.h>
 #include<time.h>
@@ -6,15 +6,15 @@
 
 void task1(int *arr, int *row, int *col, int *vecColMax, int *vecRowMax)
 {
-	/* Формируем массив из элементов столбцов */
+	/* Р¤РѕСЂРјРёСЂСѓРµРј РјР°СЃСЃРёРІ РёР· СЌР»РµРјРµРЅС‚РѕРІ СЃС‚РѕР»Р±С†РѕРІ */
 	int *vectCol = GetMemoryVect(col);
 
-	/* Формируем массив из элементов строк */
+	/* Р¤РѕСЂРјРёСЂСѓРµРј РјР°СЃСЃРёРІ РёР· СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРє */
 	int *vectRow = GetMemoryVect(row);
 
-	int stub = 1; // stub - заглушка
+	int stub = 1; // stub - Р·Р°РіР»СѓС€РєР°
 
-				  /* ищем максимальный элемент в столбце */
+				  /* РёС‰РµРј РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ СЃС‚РѕР»Р±С†Рµ */
 	for (int j = 0; j < *col; j++)
 	{
 		int k = 0;
@@ -24,12 +24,12 @@ void task1(int *arr, int *row, int *col, int *vecColMax, int *vecRowMax)
 			k++;
 		}
 
-		*(vecColMax + j) = maxArray(vectCol, col); // записываем наибольший элемент
+		*(vecColMax + j) = maxArray(vectCol, col); // Р·Р°РїРёСЃС‹РІР°РµРј РЅР°РёР±РѕР»СЊС€РёР№ СЌР»РµРјРµРЅС‚
 	}
-	printf("Массив наибольших элементов в столбце:\n");
+	printf("РњР°СЃСЃРёРІ РЅР°РёР±РѕР»СЊС€РёС… СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚РѕР»Р±С†Рµ:\n");
 	printArray(vecColMax, &stub, col);
 
-	/* ищем максимальный элемент в строке */
+	/* РёС‰РµРј РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ СЃС‚СЂРѕРєРµ */
 	for (int i = 0; i < *row; i++)
 	{
 		//int l = 0;
@@ -40,24 +40,24 @@ void task1(int *arr, int *row, int *col, int *vecColMax, int *vecRowMax)
 		}
 		//printArray(vectRow, &stub, col);
 
-		*(vecRowMax + i) = maxArray(vectRow, col); // записываем наибольший элемент
+		*(vecRowMax + i) = maxArray(vectRow, col); // Р·Р°РїРёСЃС‹РІР°РµРј РЅР°РёР±РѕР»СЊС€РёР№ СЌР»РµРјРµРЅС‚
 	}
-	printf("Массив наибольших элементов в строке:\n");
+	printf("РњР°СЃСЃРёРІ РЅР°РёР±РѕР»СЊС€РёС… СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚СЂРѕРєРµ:\n");
 	printArray(vecRowMax, &stub, row);
 
 }
 
 void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEven)
 {
-	/* Формируем массив из элементов столбцов */
+	/* Р¤РѕСЂРјРёСЂСѓРµРј РјР°СЃСЃРёРІ РёР· СЌР»РµРјРµРЅС‚РѕРІ СЃС‚РѕР»Р±С†РѕРІ */
 	int *vectCol = GetMemoryVect(col);
 
-	/* Формируем массив из элементов строк */
+	/* Р¤РѕСЂРјРёСЂСѓРµРј РјР°СЃСЃРёРІ РёР· СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРє */
 	int *vectRow = GetMemoryVect(row);
 
-	int stub = 1; // stub - заглушка
+	int stub = 1; // stub - Р·Р°РіР»СѓС€РєР°
 
-				  /* ищем четный элемент в столбце */
+				  /* РёС‰РµРј С‡РµС‚РЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ СЃС‚РѕР»Р±С†Рµ */
 	for (int j = 0; j < *col; j++)
 	{
 		int k = 0;
@@ -72,7 +72,7 @@ void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEv
 		{
 			if (*(vectCol + i) % 2 == 0)
 			{
-				*(vecColFirstEven + j) = *(vectCol + i); // записываем первый четный элемент
+				*(vecColFirstEven + j) = *(vectCol + i); // Р·Р°РїРёСЃС‹РІР°РµРј РїРµСЂРІС‹Р№ С‡РµС‚РЅС‹Р№ СЌР»РµРјРµРЅС‚
 				flag = 1;
 				break;
 			}
@@ -81,7 +81,7 @@ void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEv
 		if (!flag)
 			*(vecColFirstEven + j) = 0;
 	}
-	printf("Массив первых четных элементов столбца:\n");
+	printf("РњР°СЃСЃРёРІ РїРµСЂРІС‹С… С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃС‚РѕР»Р±С†Р°:\n");
 	printArray(vecColFirstEven, &stub, col);
 
 	for (int j = 0; j < *row; j++)
@@ -98,7 +98,7 @@ void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEv
 		{
 			if (*(vectRow + i) % 2 == 0)
 			{
-				*(vecRowLastEven + j) = *(vectRow + i); // записываем последний четный элемент
+				*(vecRowLastEven + j) = *(vectRow + i); // Р·Р°РїРёСЃС‹РІР°РµРј РїРѕСЃР»РµРґРЅРёР№ С‡РµС‚РЅС‹Р№ СЌР»РµРјРµРЅС‚
 				flag = 1;
 				break;
 			}
@@ -107,6 +107,6 @@ void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEv
 		if (!flag)
 			*(vecRowLastEven + j) = 0;
 	}
-	printf("Массив последних четных элементов строки:\n");
+	printf("РњР°СЃСЃРёРІ РїРѕСЃР»РµРґРЅРёС… С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё:\n");
 	printArray(vecRowLastEven, &stub, row);
 }

@@ -1,4 +1,4 @@
-#include<stdio.h>
+п»ї#include<stdio.h>
 #include<iostream>
 #include<locale.h>
 #include<time.h>
@@ -76,11 +76,11 @@ void printArray(double *arr, int *row, int *col)
 	printf("\n");
 }
 
-/* Проверка одномерного целочисленного массива */
+/* РџСЂРѕРІРµСЂРєР° РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕРіРѕ РјР°СЃСЃРёРІР° */
 int *GetMemoryVect(int *len)
 {
 	int *arr = NULL;
-	/*printf("Введите длину вектора: ");
+	/*printf("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ РІРµРєС‚РѕСЂР°: ");
 	scanf("%d", len);*/
 	arr = (int*)calloc(*len, sizeof(int));
 
@@ -93,11 +93,11 @@ int *GetMemoryVect(int *len)
 		return arr;
 }
 
-/* Проверка одномерного массива типа float */
+/* РџСЂРѕРІРµСЂРєР° РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° float */
 float *GetMemoryVectF(int *len)
 {
 	float *arr = NULL;
-	/*printf("Введите длину вектора: ");
+	/*printf("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ РІРµРєС‚РѕСЂР°: ");
 	scanf("%d", len);*/
 	arr = (float*)calloc(*len, sizeof(float));
 
@@ -110,11 +110,11 @@ float *GetMemoryVectF(int *len)
 		return arr;
 }
 
-/* Проверка одномерного массива типа double */
+/* РџСЂРѕРІРµСЂРєР° РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° double */
 double *GetMemoryVectD(int *len)
 {
 	double *arr = NULL;
-	/*printf("Введите длину вектора: ");
+	/*printf("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ РІРµРєС‚РѕСЂР°: ");
 	scanf("%d", len);*/
 	arr = (double*)calloc(*len, sizeof(double));
 
@@ -127,13 +127,13 @@ double *GetMemoryVectD(int *len)
 		return arr;
 }
 
-/* Проверка двумерного целочисленного массива */
+/* РџСЂРѕРІРµСЂРєР° РґРІСѓРјРµСЂРЅРѕРіРѕ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕРіРѕ РјР°СЃСЃРёРІР° */
 int *GetMemory(int *row, int *col)
 {
 	int *arr = NULL;
-	printf("Введите количество строк массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°: ");
 	scanf("%d", row);
-	printf("Введите количество столбцов массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°: ");
 	scanf("%d", col);
 	arr = (int*)calloc(*row**col, sizeof(int));
 
@@ -146,13 +146,13 @@ int *GetMemory(int *row, int *col)
 		return arr;
 }
 
-/* Проверка двумерного массива типа float */
+/* РџСЂРѕРІРµСЂРєР° РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° float */
 float *GetMemoryFloat(int *row, int *col)
 {
 	float *arr = NULL;
-	printf("Введите количество строк массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°: ");
 	scanf("%d", row);
-	printf("Введите количество столбцов массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°: ");
 	scanf("%d", col);
 	arr = (float*)calloc(*row**col, sizeof(float));
 
@@ -165,13 +165,13 @@ float *GetMemoryFloat(int *row, int *col)
 		return arr;
 }
 
-/* Проверка двумерного массива типа double */
+/* РџСЂРѕРІРµСЂРєР° РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° double */
 double *GetMemoryDouble(int *row, int *col)
 {
 	double *arr = NULL;
-	printf("Введите количество строк массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°: ");
 	scanf("%d", row);
-	printf("Введите количество столбцов массива: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°: ");
 	scanf("%d", col);
 	arr = (double*)calloc(*row**col, sizeof(double));
 
@@ -184,7 +184,7 @@ double *GetMemoryDouble(int *row, int *col)
 		return arr;
 }
 
-/* Экстремумы одномерного массива типа int: минимальный, махсимальный элементы и их индексы */
+/* Р­РєСЃС‚СЂРµРјСѓРјС‹ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° int: РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РјР°С…СЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚С‹ Рё РёС… РёРЅРґРµРєСЃС‹ */
 void extremunArray(int *arr, int *len, int *min, int *minIndex, int *max, int *maxIndex)
 {
 	*min = *max = *arr;
@@ -203,7 +203,7 @@ void extremunArray(int *arr, int *len, int *min, int *minIndex, int *max, int *m
 	}
 }
 
-/* Экстремумы одномерного массива типа float: минимальный, махсимальный элементы и их индексы */
+/* Р­РєСЃС‚СЂРµРјСѓРјС‹ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° float: РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РјР°С…СЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚С‹ Рё РёС… РёРЅРґРµРєСЃС‹ */
 void extremunArray(float *arr, int *len, float *min, int *minIndex, float *max, int *maxIndex)
 {
 	*min = *max = *arr;
@@ -222,7 +222,7 @@ void extremunArray(float *arr, int *len, float *min, int *minIndex, float *max, 
 	}
 }
 
-/* Экстремумы одномерного массива типа double: минимальный, махсимальный элементы и их индексы */
+/* Р­РєСЃС‚СЂРµРјСѓРјС‹ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С‚РёРїР° double: РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РјР°С…СЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚С‹ Рё РёС… РёРЅРґРµРєСЃС‹ */
 void extremunArray(double *arr, int *len, double *min, int *minIndex, double *max, int *maxIndex)
 {
 	*min = *max = *arr;
@@ -241,7 +241,7 @@ void extremunArray(double *arr, int *len, double *min, int *minIndex, double *ma
 	}
 }
 
-/* Минимальный элемент int array */
+/* РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ int array */
 int minArray(int *arr, int *len)
 {
 	int min = *arr;
@@ -253,7 +253,7 @@ int minArray(int *arr, int *len)
 	return min;
 }
 
-/* Минимальный элемент float array */
+/* РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ float array */
 float minArray(float *arr, int *len)
 {
 	float min = *arr;
@@ -265,7 +265,7 @@ float minArray(float *arr, int *len)
 	return min;
 }
 
-/* Минимальный элемент double array */
+/* РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ double array */
 double minArray(double *arr, int *len)
 {
 	double min = *arr;
@@ -277,7 +277,7 @@ double minArray(double *arr, int *len)
 	return min;
 }
 
-/* Максимальный элемент int array */
+/* РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ int array */
 int maxArray(int *arr, int *len)
 {
 	int max = *arr;
@@ -289,7 +289,7 @@ int maxArray(int *arr, int *len)
 	return max;
 }
 
-/* Максимальный элемент float array */
+/* РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ float array */
 float maxArray(float *arr, int *len)
 {
 	float max = *arr;
@@ -301,7 +301,7 @@ float maxArray(float *arr, int *len)
 	return max;
 }
 
-/* Максимальный элемент double array */
+/* РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ double array */
 double maxArray(double *arr, int *len)
 {
 	double max = *arr;
@@ -313,7 +313,7 @@ double maxArray(double *arr, int *len)
 	return max;
 }
 
-/*Среднее арифметическое массива*/
+/*РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РјР°СЃСЃРёРІР°*/
 double averArray(int *arr, int *len)
 {
 	int sum = 0, count = 0;
@@ -325,7 +325,7 @@ double averArray(int *arr, int *len)
 	return sum / count;
 }
 
-/*Среднее арифметическое массива*/
+/*РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РјР°СЃСЃРёРІР°*/
 double averArray(float *arr, int *len)
 {
 	float sum = 0;
@@ -338,7 +338,7 @@ double averArray(float *arr, int *len)
 	return sum / count;
 }
 
-/*Среднее арифметическое массива*/
+/*РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РјР°СЃСЃРёРІР°*/
 double averArray(double *arr, int *len)
 {
 	double sum = 0;
@@ -351,7 +351,7 @@ double averArray(double *arr, int *len)
 	return (sum / count);
 }
 
-/* Сортировка одномерного массива целых чисел методом пузырька.*/
+/* РЎРѕСЂС‚РёСЂРѕРІРєР° РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° С†РµР»С‹С… С‡РёСЃРµР» РјРµС‚РѕРґРѕРј РїСѓР·С‹СЂСЊРєР°.*/
 void bubbleSort(int *arr, int *len)
 {
 	for (int i = 0; i < (*len - 1); i++)
@@ -368,14 +368,14 @@ void bubbleSort(int *arr, int *len)
 	}
 }
 
-/* Поиск числа в массиве */
+/* РџРѕРёСЃРє С‡РёСЃР»Р° РІ РјР°СЃСЃРёРІРµ */
 void searchNumber(int *arr, int *len, int *srcNum)
 {
 	int count = 0, stub = 1;
 
 	bubbleSort(arr, len);
 
-	printf("Массив после сортировки.\n");
+	printf("РњР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё.\n");
 	printArray(arr, &stub, len);
 
 	int left = 0;
@@ -387,7 +387,7 @@ void searchNumber(int *arr, int *len, int *srcNum)
 		count++;
 		int mid = (left + right) / 2;
 
-		//printf("индекс середины: %d, элемент массива: %d\n", mid, *(arr + mid));
+		//printf("РёРЅРґРµРєСЃ СЃРµСЂРµРґРёРЅС‹: %d, СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: %d\n", mid, *(arr + mid));
 
 		if (*srcNum == *(arr + mid))
 		{
@@ -402,7 +402,7 @@ void searchNumber(int *arr, int *len, int *srcNum)
 	}
 
 	if (search == -1)
-		printf("Элемент не найден!\n");
+		printf("Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!\n");
 	else
-		printf("arr[%d] = %d (за %d проходов).\n", search, *(arr + search), count);
+		printf("arr[%d] = %d (Р·Р° %d РїСЂРѕС…РѕРґРѕРІ).\n", search, *(arr + search), count);
 }
