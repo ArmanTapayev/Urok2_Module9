@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include<iostream>
 #include<locale.h>
 #include<time.h>
@@ -316,39 +316,28 @@ double maxArray(double *arr, int *len)
 /*Среднее арифметическое массива*/
 double averArray(int *arr, int *len)
 {
-	int sum = 0, count = 0;
+	int sum = 0;
 	for (int i = 0; i < *len; i++)
-	{
 		sum += *(arr + i);
-		count++;
-	}
-	return sum / count;
+	return sum / *len;
 }
 
 /*Среднее арифметическое массива*/
 double averArray(float *arr, int *len)
 {
 	float sum = 0;
-	int count = 0;
 	for (int i = 0; i < *len; i++)
-	{
 		sum += *(arr + i);
-		count++;
-	}
-	return sum / count;
+	return sum / *len;
 }
 
 /*Среднее арифметическое массива*/
 double averArray(double *arr, int *len)
 {
 	double sum = 0;
-	int count = 0;
 	for (int i = 0; i < *len; i++)
-	{
 		sum += *(arr + i);
-		count++;
-	}
-	return (sum / count);
+	return sum / *len;
 }
 
 /* Сортировка одномерного массива целых чисел методом пузырька.*/
@@ -361,6 +350,40 @@ void bubbleSort(int *arr, int *len)
 			if (*(arr + j - 1) > *(arr + j))
 			{
 				int temp = *(arr + j - 1);
+				*(arr + j - 1) = *(arr + j);
+				*(arr + j) = temp;
+			}
+		}
+	}
+}
+
+/* Сортировка одномерного массива целых чисел методом пузырька.*/
+void bubbleSort(float *arr, int *len)
+{
+	for (int i = 0; i < (*len - 1); i++)
+	{
+		for (int j = (*len - 1); j > i; j--)
+		{
+			if (*(arr + j - 1) > *(arr + j))
+			{
+				float temp = *(arr + j - 1);
+				*(arr + j - 1) = *(arr + j);
+				*(arr + j) = temp;
+			}
+		}
+	}
+}
+
+/* Сортировка одномерного массива целых чисел методом пузырька.*/
+void bubbleSort(double *arr, int *len)
+{
+	for (int i = 0; i < (*len - 1); i++)
+	{
+		for (int j = (*len - 1); j > i; j--)
+		{
+			if (*(arr + j - 1) > *(arr + j))
+			{
+				double temp = *(arr + j - 1);
 				*(arr + j - 1) = *(arr + j);
 				*(arr + j) = temp;
 			}
@@ -405,4 +428,295 @@ void searchNumber(int *arr, int *len, int *srcNum)
 		printf("Элемент не найден!\n");
 	else
 		printf("arr[%d] = %d (за %d проходов).\n", search, *(arr + search), count);
+}
+
+/* Поиск числа в массиве */
+void searchNumber(float *arr, int *len, float *srcNum)
+{
+	int count = 0, stub = 1;
+
+	bubbleSort(arr, len);
+
+	printf("Массив после сортировки.\n");
+	printArray(arr, &stub, len);
+
+	int left = 0;
+	int right = *len - 1;
+	int search = -1;
+
+	while (left <= right)
+	{
+		count++;
+		int mid = (left + right) / 2;
+
+		//printf("индекс середины: %d, элемент массива: %d\n", mid, *(arr + mid));
+
+		if (*srcNum == *(arr + mid))
+		{
+			search = mid;
+			break;
+		}
+
+		if (*srcNum < *(arr + mid))
+			right = mid - 1;
+		else
+			left = mid + 1;
+	}
+
+	if (search == -1)
+		printf("Элемент не найден!\n");
+	else
+		printf("arr[%d] = %d (за %d проходов).\n", search, *(arr + search), count);
+}
+
+/* Поиск числа в массиве */
+void searchNumber(double *arr, int *len, double *srcNum)
+{
+	int count = 0, stub = 1;
+
+	bubbleSort(arr, len);
+
+	printf("Массив после сортировки.\n");
+	printArray(arr, &stub, len);
+
+	int left = 0;
+	int right = *len - 1;
+	int search = -1;
+
+	while (left <= right)
+	{
+		count++;
+		int mid = (left + right) / 2;
+
+		//printf("индекс середины: %d, элемент массива: %d\n", mid, *(arr + mid));
+
+		if (*srcNum == *(arr + mid))
+		{
+			search = mid;
+			break;
+		}
+
+		if (*srcNum < *(arr + mid))
+			right = mid - 1;
+		else
+			left = mid + 1;
+	}
+
+	if (search == -1)
+		printf("Элемент не найден!\n");
+	else
+		printf("arr[%d] = %d (за %d проходов).\n", search, *(arr + search), count);
+}
+
+/* Сумма элементов массива */
+int arrSum(int *arr, int *len)
+{
+	int sum = 0;
+	for (int i = 0; i < *len; i++)
+		sum += *(arr + i);
+	return sum;
+}
+
+/* Сумма элементов массива */
+float arrSum(float *arr, int *len)
+{
+	int sum = 0;
+	for (int i = 0; i < *len; i++)
+		sum += *(arr + i);
+	return sum;
+}
+
+/* Сумма элементов массива */
+double arrSum(double *arr, int *len)
+{
+	int sum = 0;
+	for (int i = 0; i < *len; i++)
+		sum += *(arr + i);
+	return sum;
+}
+
+/* Перестановка элементов массива */
+int *swapNum(int *arr, int *len, int *first, int *second)
+{
+	int fInd, sInd;
+	for (int i = 0; i < *len; i++)
+	{
+		if (*(arr + i) == *first)
+			fInd = i;
+
+		if (*(arr + i) == *second)
+			sInd = i;
+	}
+		int temp = *(arr + fInd);
+		*(arr + fInd) = *(arr + sInd);
+		*(arr + sInd) = temp;
+	return arr;
+}
+
+/* Перестановка элементов массива */
+float *swapNum(float *arr, int *len, float *first, float *second)
+{	
+	int fInd, sInd;
+	for (int i = 0; i < *len; i++)
+	{
+		if (*(arr + i) == *first)
+			fInd = i;
+
+		if (*(arr + i) == *second)
+			sInd = i;
+	}
+		float temp = *(arr + fInd);
+		*(arr + fInd) = *(arr + sInd);
+		*(arr + sInd) = temp;
+	return arr;
+}
+
+/* Перестановка элементов массива */
+double *swapNum(double *arr, int *len, double *first, double *second)
+{
+	int fInd, sInd;
+	for (int i = 0; i < *len; i++)
+	{
+		if (*(arr + i) == *first)
+			fInd = i;
+
+		if (*(arr + i) == *second)
+			sInd = i;
+	}
+		double temp = *(arr + fInd);
+		*(arr + fInd) = *(arr + sInd);
+		*(arr + sInd) = temp;
+	return arr;
+}
+
+//void bldArr(float *arr, int *len)
+//{
+//	//float *arr = NULL;
+//	arr = (float*)calloc(1, sizeof(float));
+//	int stub = 1;
+//	do
+//	{
+//		printf("Введите число: ");
+//		if (scanf("%f", (arr + *len)) == true)
+//		{
+//			*len=*len+1;
+//			arr = (float*)realloc(arr, sizeof(float)*(*len + 1));
+//		}
+//		else
+//			break;
+//
+//	} while (true);
+//
+//	printf("Сформированный массив: \n");
+//	printArray(arr, &stub, len);
+//}
+
+/* проверка массива на возрастание */
+int ascArr(int *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len - 1; i++)
+	{
+		if (*(arr + i) <= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}
+	}
+	if (flag)   return 1;
+	else		return 0;
+}
+
+/* проверка массива на возрастание */
+int ascArr(float *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len-1; i++)
+	{
+		if (*(arr + i) <= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}			
+	}	
+	if (flag)   return 1;		 
+	else		return 0;		
+}
+
+/* проверка массива на возрастание */
+int ascArr(double *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len - 1; i++)
+	{
+		if (*(arr + i) <= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}
+	}
+	if (flag)   return 1;
+	else		return 0;
+}
+
+
+
+/* проверка массива на убывание */
+int descArr(int *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len - 1; i++)
+	{
+		if (*(arr + i) >= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}
+	}
+	if (flag)   return 1;
+	else		return 0;
+}
+
+/* проверка массива на убывание */
+int descArr(float *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len - 1; i++)
+	{
+		if (*(arr + i) >= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}
+	}
+	if (flag)   return 1;
+	else		return 0;
+}
+
+/* проверка массива на убывание */
+int descArr(double *arr, int *len)
+{
+	int flag = 0;
+	for (int i = 0; i < *len - 1; i++)
+	{
+		if (*(arr + i) >= *(arr + i + 1))
+			flag = 1;
+		else
+		{
+			flag = 0;
+			break;
+		}
+	}
+	if (flag)   return 1;
+	else		return 0;
 }
