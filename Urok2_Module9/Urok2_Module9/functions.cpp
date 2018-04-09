@@ -1,112 +1,119 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include<iostream>
 #include<locale.h>
 #include<time.h>
 #include "Header.h"
 
-void task1(int *arr, int *row, int *col, int *vecColMax, int *vecRowMax)
+void task2(int *arr, int *len, int *vecPos, int *vecNeg)
 {
-	/* Формируем массив из элементов столбцов */
-	int *vectCol = GetMemoryVect(col);
+	int stub = 1, pos=0, neg=0; // stub - заглушка
 
-	/* Формируем массив из элементов строк */
-	int *vectRow = GetMemoryVect(row);
-
-	int stub = 1; // stub - заглушка
-
-				  /* ищем максимальный элемент в столбце */
-	for (int j = 0; j < *col; j++)
-	{
-		int k = 0;
-		for (int i = 0; i < *row; i++)
+		for (int i = 0; i < *len; i++)
 		{
-			*(vectCol + k) = *(arr + j + i * *row);
-			k++;
+			if (*(arr + i) >= 0)
+			{
+				*(vecPos + pos) = *(arr + i); // записываем положительные элементы
+				pos++;
+			}				
+			else
+			{
+				*(vecNeg + neg) = *(arr + i); // записываем положительные элементы
+				neg++;
+			}
+				
 		}
 
-		*(vecColMax + j) = maxArray(vectCol, col); // записываем наибольший элемент
-	}
-	printf("Массив наибольших элементов в столбце:\n");
-	printArray(vecColMax, &stub, col);
+	printf("Массив положительных элементов массива:\n");
+	printArray(vecPos, &stub, &pos);
 
-	/* ищем максимальный элемент в строке */
-	for (int i = 0; i < *row; i++)
-	{
-		//int l = 0;
-		for (int j = 0; j < *col; j++)
-		{
-			*(vectRow + j) = *(arr + i * *row + j);
-			//l++;
-		}
-		//printArray(vectRow, &stub, col);
+	printf("Массив отрицательных элементов массива:\n");
+	printArray(vecNeg, &stub, &neg);
 
-		*(vecRowMax + i) = maxArray(vectRow, col); // записываем наибольший элемент
-	}
-	printf("Массив наибольших элементов в строке:\n");
-	printArray(vecRowMax, &stub, row);
+	printf("Сумма положительных элементов: %d\n", arrSum(vecPos, &pos));
+	printf("Сумма отрицательных элементов: %d\n", arrSum(vecNeg, &neg));
 
 }
 
-void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEven)
+void task3(float *arr, int *len, float *vec)
 {
-	/* Формируем массив из элементов столбцов */
-	int *vectCol = GetMemoryVect(col);
+	int stub = 1, k = 0; // stub - заглушка
 
-	/* Формируем массив из элементов строк */
-	int *vectRow = GetMemoryVect(row);
-
-	int stub = 1; // stub - заглушка
-
-				  /* ищем четный элемент в столбце */
-	for (int j = 0; j < *col; j++)
+	for (int i = 0; i < *len; i++)
 	{
-		int k = 0;
-		for (int i = 0; i < *row; i++)
+		if (abs(*(arr + i)) > 10)
 		{
-			*(vectCol + k) = *(arr + j + i * *row);
+			*(vec + k) = abs(*(arr + i)); // записываем элементы по модулю большие 10
 			k++;
 		}
-
-		int flag = 0;
-		for (int i = 0; i < *col; i++)
-		{
-			if (*(vectCol + i) % 2 == 0)
-			{
-				*(vecColFirstEven + j) = *(vectCol + i); // записываем первый четный элемент
-				flag = 1;
-				break;
-			}
-
-		}
-		if (!flag)
-			*(vecColFirstEven + j) = 0;
 	}
-	printf("Массив первых четных элементов столбца:\n");
-	printArray(vecColFirstEven, &stub, col);
 
-	for (int j = 0; j < *row; j++)
-	{
-		int k = 0;
-		for (int i = 0; i < *col; i++)
-		{
-			*(vectRow + k) = *(arr + j * *row + i);
-			k++;
-		}
+	printf("Массив элементов по модулю больших 10:\n");
+	printArray(vec, &stub, &k);
 
-		int flag = 0;
-		for (int i = *col - 1; i >= 0; i--)
-		{
-			if (*(vectRow + i) % 2 == 0)
-			{
-				*(vecRowLastEven + j) = *(vectRow + i); // записываем последний четный элемент
-				flag = 1;
-				break;
-			}
+	printf("Среднее арифметическое элементов массива: %3.2f\n", averArray(vec, &k));
 
-		}
-		if (!flag)
-			*(vecRowLastEven + j) = 0;
-	}
-	printf("Массив последних четных элементов строки:\n");
-	printArray(vecRowLastEven, &stub, row);
 }
+
+
+void task6(float *arr, int *len)
+{
+	int stub = 1, k = 0; // stub - заглушка
+
+	float *vec = NULL;
+	vec = GetMemoryVectF(len);
+
+	for (int i = 0; i < *len; i++)
+	{
+		if (!((*(arr + i) > -3) && (*(arr + i) < 7)))
+		{
+			*(vec + k) = *(arr + i); // записываем элементы, не входящие в (-3,7)
+			k++;
+		}
+	}
+
+	printf("Массив элементов не входящих в (-3,7):\n");
+	printArray(vec, &stub, &k);
+
+	float mult = 1;
+
+		for (int i = 0; i < k; i++)
+		{
+			if (*(vec + i)<0)
+				mult *= *(vec + i); 
+		}
+
+	printf("Произведение отрицательных элементов нового массива: %3.2f\n", mult);
+}
+
+
+void task9(float *arr, int *len)
+{
+	int stub = 1, k = 0; // stub - заглушка
+
+	float *vec = NULL, min, max;
+	vec = GetMemoryVectF(len);
+
+	for (int i = 0; i < *len; i++)
+	{
+		if (abs(*(arr + i))<12)
+		{
+			*(vec + k) = abs(*(arr + i)); // записываем элементы по модулю не большие 12
+			k++;
+		}
+	}
+
+	printf("Массив элементов по модулю не больших 12:\n");
+	printArray(vec, &stub, &k);
+
+	min = minArray(vec, &k);
+	max = maxArray(vec, &k);
+
+	printf("Минимальный элемент нового массива: %3.2f\n", min);
+	printf("Максимальный элемент нового массива: %3.2f\n", max);
+
+	printf("Массив с переставленными min и max элементами:\n");
+	vec = swapNum(vec, &k, &min, &max);
+	printArray(vec, &stub, &k);
+
+}
+
