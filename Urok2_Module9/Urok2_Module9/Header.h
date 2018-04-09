@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 void fillArray(int *arr, int *row, int *col, int *min, int *max);
 void fillArray(double *arr, int *row, int *col, double *min, double *max);
@@ -22,12 +22,28 @@ int maxArray(int *arr, int *len);
 float maxArray(float *arr, int *len);
 double maxArray(double *arr, int *len);
 void searchNumber(int *arr, int *len, int *srcNum);
+void searchNumber(float *arr, int *len, float *srcNum);
+void searchNumber(double *arr, int *len, double *srcNum);
 void bubbleSort(int *arr, int *len);
-
+void bubbleSort(float *arr, int *len);
+void bubbleSort(double *arr, int *len);
 double averArray(int *arr, int *len);
 double averArray(float *arr, int *len);
 double averArray(double *arr, int *len);
+int arrSum(int *arr, int *len);
+float arrSum(float *arr, int *len);
+double arrSum(double *arr, int *len);
+int *swapNum(int *arr, int *len, int *first, int *second);
+float *swapNum(float *arr, int *len, float *first, float *second);
+double *swapNum(double *arr, int *len, double *first, double *second);
+int ascArr(int *arr, int *len);
+int ascArr(float *arr, int *len);
+int ascArr(double *arr, int *len);
+int descArr(int *arr, int *len);
+int descArr(float *arr, int *len);
+int descArr(double *arr, int *len);
 
-void task1(int *arr, int *row, int *col, int *vecColMax, int *vecRowMax);
-void task2(int *arr, int *row, int *col, int *vecColFirstEven, int *vecRowLastEven);
-
+void task2(int *arr, int *len, int *vecPos, int *vecNeg);
+void task3(float *arr, int *len, float *vec);
+void task6(float *arr, int *len);
+void task9(float *arr, int *len);
